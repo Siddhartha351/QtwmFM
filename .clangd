@@ -1,0 +1,24 @@
+CompileFlags:
+  Add: []
+  Remove: [-mno-direct-extern-access]
+
+Index:
+  Background: Build
+
+Diagnostics:
+  ClangTidy:
+    Add: 
+      - bugprone-*
+      - modernize-*
+      - readability-*
+      - cert-*
+      - performance-*
+      - cppcoreguidelines-*
+      - misc-*
+    Remove:
+      - modernize-use-trailing-return-type
+      - readability-magic-numbers
+      - cppcoreguidelines-avoid-magic-numbers
+    CheckOptions:
+      readability-identifier-naming.VariableCase: camelCase
+      readability-identifier-naming.FunctionCase: camelCase
