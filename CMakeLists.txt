@@ -13,11 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 3.16)
-project(QtwmFM)
-
 cmake_minimum_required(VERSION 3.30)
-project(Sio VERSION 1.0 LANGUAGES CXX)
+project(QtwmFM VERSION 1.0 LANGUAGES CXX)
 
 # Setting C++ standard
 set(CMAKE_CXX_STANDARD 26)
@@ -80,6 +77,8 @@ add_executable(qtwmfm
     src/Workspace/Workspace.hpp
     src/Workspace/FileViewWidget/FileViewWidget.cpp
     src/Workspace/FileViewWidget/FileViewWidget.hpp
+    src/Workspace/FileViewWidget/ViewPages/IconsViewPage/IconsViewPage.cpp
+    src/Workspace/FileViewWidget/ViewPages/IconsViewPage/IconsViewPage.hpp
 )
 
 target_include_directories(qtwmfm PRIVATE src)
