@@ -18,12 +18,14 @@
 #include "Header/Header.hpp"
 
 QtwmFMHeader::QtwmFMHeader(QWidget *parent)
-    : QWidget(parent), HeaderLayout(new QHBoxLayout(this)),
-      SidebarToggleButton(new QPushButton(this)), ItemsViewButton(new QPushButton(this)),
-      SearchButton(new QPushButton(this)), PreviewToggleButton(new QPushButton(this)),
-      MenuButton(new QPushButton(this)), MainMenu(new QtwmFMMainMenu(this)) {
+	: QWidget(parent), HeaderLayout(new QHBoxLayout(this)),
+	  SidebarToggleButton(new QPushButton(this)),
+	  ItemsViewButton(new QPushButton(this)),
+	  SearchButton(new QPushButton(this)),
+	  PreviewToggleButton(new QPushButton(this)),
+	  MenuButton(new QPushButton(this)), MainMenu(new QtwmFMMainMenu(this)) {
 
-    const QString ButtonQSS{R"(
+	const QString ButtonQSS{R"(
 		QPushButton {
 			background-color: transparent;
 			border: none;
@@ -37,33 +39,33 @@ QtwmFMHeader::QtwmFMHeader(QWidget *parent)
 		}
 	)"};
 
-    SidebarToggleButton->setIcon(QIcon::fromTheme("sidebar-expand-left"));
-    SidebarToggleButton->setStyleSheet(ButtonQSS);
-    HeaderLayout->addWidget(SidebarToggleButton);
+	SidebarToggleButton->setIcon(QIcon::fromTheme("sidebar-expand-left"));
+	SidebarToggleButton->setStyleSheet(ButtonQSS);
+	HeaderLayout->addWidget(SidebarToggleButton);
 
-    ItemsViewButton->setIcon(QIcon::fromTheme("view-list-icons"));
-    ItemsViewButton->setStyleSheet(ButtonQSS);
-    HeaderLayout->addWidget(ItemsViewButton);
+	ItemsViewButton->setIcon(QIcon::fromTheme("view-list-icons"));
+	ItemsViewButton->setStyleSheet(ButtonQSS);
+	HeaderLayout->addWidget(ItemsViewButton);
 
-    // Display rest on the far right.
-    HeaderLayout->addStretch();
+	// Display rest on the far right.
+	HeaderLayout->addStretch();
 
-    SearchButton->setIcon(QIcon::fromTheme("find"));
-    SearchButton->setStyleSheet(ButtonQSS);
-    HeaderLayout->addWidget(SearchButton);
+	SearchButton->setIcon(QIcon::fromTheme("find"));
+	SearchButton->setStyleSheet(ButtonQSS);
+	HeaderLayout->addWidget(SearchButton);
 
-    PreviewToggleButton->setIcon(QIcon::fromTheme("preview"));
-    PreviewToggleButton->setStyleSheet(ButtonQSS);
-    HeaderLayout->addWidget(PreviewToggleButton);
+	PreviewToggleButton->setIcon(QIcon::fromTheme("preview"));
+	PreviewToggleButton->setStyleSheet(ButtonQSS);
+	HeaderLayout->addWidget(PreviewToggleButton);
 
-    MenuButton->setMenu(MainMenu);
-    MenuButton->setIcon(QIcon::fromTheme("open-menu"));
-    MenuButton->setStyleSheet(ButtonQSS + R"(
+	MenuButton->setMenu(MainMenu);
+	MenuButton->setIcon(QIcon::fromTheme("open-menu"));
+	MenuButton->setStyleSheet(ButtonQSS + R"(
 		QPushButton::menu-indicator {
 			image: none;
 			width: 0px;
 		}
 	)");
-    HeaderLayout->addWidget(MenuButton);
+	HeaderLayout->addWidget(MenuButton);
 }
 QtwmFMHeader::~QtwmFMHeader() = default;

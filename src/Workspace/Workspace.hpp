@@ -18,6 +18,7 @@
 #pragma once
 #include "Workspace/FileViewWidget/FileViewWidget.hpp"
 #include <QApplication>
+#include <QGridLayout>
 #include <QString>
 #include <QTabWidget>
 #include <QWidget>
@@ -25,18 +26,20 @@
 
 class QtwmFMWorkspace : public QWidget {
   private:
-    Q_OBJECT
-    QTabWidget *MainTabWidget;
-    QtwmFMFileViewWidget *FileViewWidget;
+	Q_OBJECT
+	QGridLayout *DummyGridLayout;
+	QTabWidget *MainTabWidget;
+	QtwmFMFileViewWidget *FileViewWidget;
+	QtwmFMFileViewWidget *TestingWidget;
 
   public:
-    void CreateNewTab(const QString &path);
+	void CreateNewTab(const QString &path);
 
-    QtwmFMWorkspace(QWidget *Parent);
-    ~QtwmFMWorkspace() override;
+	QtwmFMWorkspace(QWidget *Parent);
+	~QtwmFMWorkspace() override;
 
-    QtwmFMWorkspace(const QtwmFMWorkspace &) = delete;
-    QtwmFMWorkspace(QtwmFMWorkspace &&) = delete;
-    QtwmFMWorkspace &operator=(const QtwmFMWorkspace &) = delete;
-    QtwmFMWorkspace &operator=(QtwmFMWorkspace &&) = delete;
+	QtwmFMWorkspace(const QtwmFMWorkspace &) = delete;
+	QtwmFMWorkspace(QtwmFMWorkspace &&) = delete;
+	QtwmFMWorkspace &operator=(const QtwmFMWorkspace &) = delete;
+	QtwmFMWorkspace &operator=(QtwmFMWorkspace &&) = delete;
 };

@@ -16,6 +16,8 @@
  */
 
 #pragma once
+#include <QHBoxLayout>
+#include <QSplitter>
 #include <QStackedWidget>
 #include <QWidget>
 #include <qtmetamacros.h>
@@ -23,6 +25,8 @@
 class QtwmFMFileViewWidget : public QWidget {
 	Q_OBJECT
 
+	QHBoxLayout *MainViewsHLayout;
+	QSplitter *PreviewSplitter;
 	QStackedWidget *MainViewsStack;
 
   public:

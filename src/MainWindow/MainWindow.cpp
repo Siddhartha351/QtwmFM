@@ -18,16 +18,16 @@
 #include "MainWindow/MainWindow.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), CentralDummyWidget(new QWidget(this)),
-      MainVLayout(new QVBoxLayout(CentralDummyWidget)), Header(new QtwmFMHeader(this)),
-      MainWorkspace(new QtwmFMWorkspace(this)) {
+	: QMainWindow(parent), CentralDummyWidget(new QWidget(this)),
+	  MainVLayout(new QVBoxLayout(CentralDummyWidget)),
+	  Header(new QtwmFMHeader(this)), MainWorkspace(new QtwmFMWorkspace(this)) {
 
-    setWindowTitle("Twm Files");
-    resize(800, 600);
+	setWindowTitle("Twm Files");
+	resize(800, 600);
 
-    this->setCentralWidget(CentralDummyWidget);
-    CentralDummyWidget->setLayout(MainVLayout);
-    MainVLayout->addWidget(Header);
-    MainVLayout->addWidget(MainWorkspace, 1); // Add the '1' to make it expand
+	this->setCentralWidget(CentralDummyWidget);
+	CentralDummyWidget->setLayout(MainVLayout);
+	MainVLayout->addWidget(Header);
+	MainVLayout->addWidget(MainWorkspace, 1); // Add the '1' to make it expand
 }
 MainWindow::~MainWindow() = default;

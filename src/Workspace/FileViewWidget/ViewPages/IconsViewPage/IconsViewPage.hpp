@@ -16,3 +16,20 @@
  */
 
 #pragma once
+#include <QGridLayout>
+#include <QWidget>
+#include <qtmetamacros.h>
+
+class IconsViewPage : public QWidget {
+	Q_OBJECT
+	QGridLayout *MainIconsLayout;
+
+  public:
+	IconsViewPage(QWidget *Parent);
+	~IconsViewPage() override;
+
+	IconsViewPage(const IconsViewPage &) = delete;
+	IconsViewPage(IconsViewPage &&) = delete;
+	IconsViewPage &operator=(const IconsViewPage &) = delete;
+	IconsViewPage &operator=(IconsViewPage &&) = delete;
+};

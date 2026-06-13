@@ -18,9 +18,14 @@
 #include "Workspace/Workspace.hpp"
 
 QtwmFMWorkspace::QtwmFMWorkspace(QWidget *Parent)
-	: QWidget(Parent), MainTabWidget(new QTabWidget(this)),
-	  FileViewWidget(new QtwmFMFileViewWidget(this)) {
+	: QWidget(Parent), DummyGridLayout(new QGridLayout(this)),
+	  MainTabWidget(new QTabWidget(this)),
+	  FileViewWidget(new QtwmFMFileViewWidget(this)),
+	  TestingWidget(new QtwmFMFileViewWidget(this)) {
 
-	MainTabWidget->addTab(FileViewWidget, "New Tab");
+	this->setLayout(DummyGridLayout);
+	DummyGridLayout->addWidget(MainTabWidget);
+	MainTabWidget->addTab(FileViewWidget, "New Tab 1");
+	MainTabWidget->addTab(TestingWidget, "New Tab 2");
 }
 QtwmFMWorkspace::~QtwmFMWorkspace() = default;

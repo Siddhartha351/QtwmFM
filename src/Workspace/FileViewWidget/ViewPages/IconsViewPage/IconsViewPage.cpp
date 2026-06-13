@@ -16,3 +16,9 @@
  */
 
 #include "Workspace/FileViewWidget/ViewPages/IconsViewPage/IconsViewPage.hpp"
+
+IconsViewPage::IconsViewPage(QWidget *Parent)
+	: QWidget(Parent), MainIconsLayout(new QGridLayout(this)) {
+	this->setLayout(MainIconsLayout);
+}
+IconsViewPage::~IconsViewPage() = default;

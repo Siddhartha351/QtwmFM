@@ -24,23 +24,22 @@
 #include <qtmetamacros.h>
 
 class MainWindow : public QMainWindow {
-  private:
-    Q_OBJECT
-    // As we cant add a layout directly to the QMainWindow class,
-    // we have to add a QWidget as a dummy to the QMainWindow and
-    // set it to the central widget. Then we can add our custom
-    // layout logic to that widget.
-    QWidget *CentralDummyWidget;
-    QVBoxLayout *MainVLayout;
-    QtwmFMHeader *Header;
-    QtwmFMWorkspace *MainWorkspace;
+	Q_OBJECT
+	// As we cant add a layout directly to the QMainWindow class,
+	// we have to add a QWidget as a dummy to the QMainWindow and
+	// set it to the central widget. Then we can add our custom
+	// layout logic to that widget.
+	QWidget *CentralDummyWidget;
+	QVBoxLayout *MainVLayout;
+	QtwmFMHeader *Header;
+	QtwmFMWorkspace *MainWorkspace;
 
   public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow() override;
+	explicit MainWindow(QWidget *parent = nullptr);
+	~MainWindow() override;
 
-    MainWindow(const MainWindow &) = delete;
-    MainWindow(MainWindow &&) = delete;
-    MainWindow &operator=(const MainWindow &) = delete;
-    MainWindow &operator=(MainWindow &&) = delete;
+	MainWindow(const MainWindow &) = delete;
+	MainWindow(MainWindow &&) = delete;
+	MainWindow &operator=(const MainWindow &) = delete;
+	MainWindow &operator=(MainWindow &&) = delete;
 };

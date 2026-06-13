@@ -17,5 +17,13 @@
 
 #include "Workspace/FileViewWidget/FileViewWidget.hpp"
 
-QtwmFMFileViewWidget::QtwmFMFileViewWidget(QWidget *Parent) : QWidget(Parent) {}
+QtwmFMFileViewWidget::QtwmFMFileViewWidget(QWidget *Parent)
+	: QWidget(Parent), MainViewsHLayout(new QHBoxLayout(this)),
+	  PreviewSplitter(new QSplitter(Qt::Horizontal, this)),
+	  MainViewsStack(new QStackedWidget(this)) {
+
+	this->setLayout(MainViewsHLayout);
+	MainViewsHLayout->addWidget(MainViewsStack); // Add stretch factor 1
+	MainViewsHLayout->addWidget(PreviewSplitter);
+}
 QtwmFMFileViewWidget::~QtwmFMFileViewWidget() = default;

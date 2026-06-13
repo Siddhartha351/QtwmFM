@@ -24,30 +24,31 @@ QtwmFMMainMenu::QtwmFMMainMenu(QWidget *parent)
 
 	const QString MenuQSS{
 		QString(R"(
-	QMenu {
-		background-color: %1;
-		border-radius: 10px;
-		padding: 5px;
-	}
+		QMenu {
+			 background-color: %1;
+			 border-radius: 10px;
+			 padding: 5px;
+			 border: 1px solid %2;
+		}
 
-	QMenu::item {
-		padding: 6px 24px;
-		margin: 2px 4px;
-		border-radius: 6px;
-	}
+		QMenu::item {
+			padding: 6px 24px;
+			margin: 2px 4px;
+			border-radius: 6px;
+		}
 
-	QMenu::item:selected {
-		background-color: %2;
-		padding: 6px 24px;
-		margin: 2px 4px;
-		border-radius: 6px;
-	}
+		QMenu::item:selected {
+			background-color: %2;
+			padding: 6px 24px;
+			margin: 2px 4px;
+			border-radius: 6px;
+		}
 
-	QMenu::separator {
-		background-color: %2;
-		height: 1px;
-		margin: 4px 10px;
-	}	
+		QMenu::separator {
+			background-color: %2;
+			height: 1px;
+			margin: 4px 10px;
+		}	
 	)")
 			.arg(QApplication::palette().alternateBase().color().name())
 			.arg(QApplication::palette().light().color().name())};
