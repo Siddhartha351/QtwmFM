@@ -16,17 +16,20 @@
  */
 
 #pragma once
+#include <QStackedWidget>
 #include <QWidget>
 #include <qtmetamacros.h>
 
 class QtwmFMFileViewWidget : public QWidget {
-    Q_OBJECT
+	Q_OBJECT
+
+	QStackedWidget *MainViewsStack;
 
   public:
-    QtwmFMFileViewWidget(QWidget *Parent);
-    ~QtwmFMFileViewWidget() override;
-    QtwmFMFileViewWidget(const QtwmFMFileViewWidget &) = delete;
-    QtwmFMFileViewWidget(QtwmFMFileViewWidget &&) = delete;
-    QtwmFMFileViewWidget &operator=(const QtwmFMFileViewWidget &) = delete;
-    QtwmFMFileViewWidget &operator=(QtwmFMFileViewWidget &&) = delete;
+	QtwmFMFileViewWidget(QWidget *Parent);
+	~QtwmFMFileViewWidget() override;
+	QtwmFMFileViewWidget(const QtwmFMFileViewWidget &) = delete;
+	QtwmFMFileViewWidget(QtwmFMFileViewWidget &&) = delete;
+	QtwmFMFileViewWidget &operator=(const QtwmFMFileViewWidget &) = delete;
+	QtwmFMFileViewWidget &operator=(QtwmFMFileViewWidget &&) = delete;
 };
