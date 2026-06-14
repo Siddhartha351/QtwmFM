@@ -19,6 +19,3 @@ Diagnostics:
       - modernize-use-trailing-return-type
       - readability-magic-numbers
       - cppcoreguidelines-avoid-magic-numbers
-    CheckOptions:
-      readability-identifier-naming.VariableCase: camelCase
-      readability-identifier-naming.FunctionCase: camelCase

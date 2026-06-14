@@ -6,9 +6,9 @@ Thank you for your interest in contributing to _QtwmFM_! All contributions are w
 <!-- TOC:collapse=true&collapseText="Click to expand" -->
 <details>
 <summary><sub><sup>Click to expand</sup></sub></summary>
-	
+    
 - [How Can I Contribute?](#how-can-i-contribute)
-	- [Contributing Code](#contributing-code)
+    - [Contributing Code](#contributing-code)
 - [Build Dependencies](#build-dependencies)
 - [Coding Guidelines](#coding-guidelines)
 
@@ -32,14 +32,14 @@ To Contribute Code follow the following steps:
 
 
 ## Build Dependencies
-- C++26(C++2c) supported std lib(GCC 14+, libc++ 17+) and c/c++ compiler(GCC 14+, Clang 13+).
-- Clangd (Clangd 13+)
+- C++23 supported std lib(GCC 14+, libc++ 17+) and c/c++ compiler(GCC 14+, Clang 18+).
+- Clangd (Clangd 18+)
 - Qt6
 - CMake 3.30+
-- Make
+- Make 3.80+
 
 ## Coding Guidelines
-- Follow ISO C++26 and Bug Guardrails Enforced by [CMakeLists.txt](CMakeLists.txt)
+- Follow ISO C++23 and Bug Guardrails Enforced by [CMakeLists.txt](CMakeLists.txt)
 - Follow the Variable/Class/Function naming style alteady used in code present in the Project, keep it Consistent.
 - Follow and use the Code Style described in [.clang-format](.clang-format)
 - Always run _Clangd lsp_ and  _Clangd Tidy_ on the project.
