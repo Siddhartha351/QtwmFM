@@ -18,14 +18,65 @@
 #include "Workspace/Workspace.hpp"
 
 QtwmFMWorkspace::QtwmFMWorkspace(QWidget *Parent)
-	: QWidget(Parent), DummyGridLayout(new QGridLayout(this)),
-	  MainTabWidget(new QTabWidget(this)),
-	  FileViewWidget(new QtwmFMFileViewWidget(this)),
-	  TestingWidget(new QtwmFMFileViewWidget(this)) {
+	: QWidget(Parent), DummyGridLayout(new QGridLayout(
+						   this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  MainTabWidget(
+		  new QTabWidget(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  AddTabButton(new QPushButton(
+		  MainTabWidget)), // NOLINT(cppcoreguidelines-owning-memory)
+	  FileViewWidget(new QtwmFMFileViewWidget(
+		  MainTabWidget)), // NOLINT(cppcoreguidelines-owning-memory)
+	  TestingWidget(new QtwmFMFileViewWidget(
+		  MainTabWidget)) { // NOLINT(cppcoreguidelines-owning-memory)
+
+	const QString ButtonQSS{R"(
+		QPushButton {
+			background-color: transparent;
+			border: none;
+			outline: none;
+		}
+		QPushButton:hover {
+			background-color: transparent;
+		}
+		QPushButton:pressed {
+			background-color: transparent;
+		}
+	)"};
+
+	const QString TabWidgetQSS{QString(R"(
+		)")};
 
 	this->setLayout(DummyGridLayout);
 	DummyGridLayout->addWidget(MainTabWidget);
-	MainTabWidget->addTab(FileViewWidget, "New Tab 1");
-	MainTabWidget->addTab(TestingWidget, "New Tab 2");
+	AddTabButton->setStyleSheet(ButtonQSS);
+	AddTabButton->setIcon(QIcon::fromTheme("tab-new"));
+	MainTabWidget->setCornerWidget(AddTabButton);
+	// Prevent the button from taking focus to avoid Wayland text input issues
+	AddTabButton->setFocusPolicy(Qt::NoFocus);
+
+	MainTabWidget->setTabsClosable(true);
+	MainTabWidget->setStyleSheet(TabWidgetQSS);
+	MainTabWidget->addTab(FileViewWidget, "New Tab");
+
+	// Connect the add tab button to create a new tab
+	connect(AddTabButton, &QPushButton::clicked, this,
+			[this]() { CreateNewTab(QString()); });
+
+	// Handle tab close requests
+	connect(MainTabWidget, &QTabWidget::tabCloseRequested, this,
+			[this](int index) {
+				QWidget *widget = MainTabWidget->widget(index);
+				MainTabWidget->removeTab(index);
+				widget->deleteLater();
+			});
 }
+
+void QtwmFMWorkspace::CreateNewTab(const QString &path) {
+	// NOLINTNEXTLINE(cppcoreguidelines-owning-memory)
+	auto *newWidget = new QtwmFMFileViewWidget(MainTabWidget);
+	int index =
+		MainTabWidget->addTab(newWidget, path.isEmpty() ? "New Tab" : path);
+	MainTabWidget->setCurrentIndex(index);
+}
+
 QtwmFMWorkspace::~QtwmFMWorkspace() = default;

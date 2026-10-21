@@ -23,7 +23,7 @@ QtwmFMFileViewWidget::QtwmFMFileViewWidget(QWidget *Parent)
 	  MainViewsStack(new QStackedWidget(this)) {
 
 	this->setLayout(MainViewsHLayout);
-	MainViewsHLayout->addWidget(MainViewsStack); // Add stretch factor 1
+	MainViewsHLayout->addWidget(MainViewsStack);
 	MainViewsHLayout->addWidget(PreviewSplitter);
 }
 QtwmFMFileViewWidget::~QtwmFMFileViewWidget() = default;

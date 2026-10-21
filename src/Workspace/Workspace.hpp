@@ -19,6 +19,7 @@
 #include "Workspace/FileViewWidget/FileViewWidget.hpp"
 #include <QApplication>
 #include <QGridLayout>
+#include <QPushButton>
 #include <QString>
 #include <QTabWidget>
 #include <QWidget>
@@ -29,6 +30,7 @@ class QtwmFMWorkspace : public QWidget {
 	Q_OBJECT
 	QGridLayout *DummyGridLayout;
 	QTabWidget *MainTabWidget;
+	QPushButton *AddTabButton;
 	QtwmFMFileViewWidget *FileViewWidget;
 	QtwmFMFileViewWidget *TestingWidget;
 

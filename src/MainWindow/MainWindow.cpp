@@ -18,9 +18,10 @@
 #include "MainWindow/MainWindow.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent), CentralDummyWidget(new QWidget(this)),
-	  MainVLayout(new QVBoxLayout(CentralDummyWidget)),
-	  Header(new QtwmFMHeader(this)), MainWorkspace(new QtwmFMWorkspace(this)) {
+	: QMainWindow(parent), CentralDummyWidget(new QWidget(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  MainVLayout(new QVBoxLayout(CentralDummyWidget)), // NOLINT(cppcoreguidelines-owning-memory)
+	  Header(new QtwmFMHeader(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  MainWorkspace(new QtwmFMWorkspace(this)) { // NOLINT(cppcoreguidelines-owning-memory)
 
 	setWindowTitle("Twm Files");
 	resize(800, 600);

@@ -18,12 +18,13 @@
 #include "Header/Header.hpp"
 
 QtwmFMHeader::QtwmFMHeader(QWidget *parent)
-	: QWidget(parent), HeaderLayout(new QHBoxLayout(this)),
-	  SidebarToggleButton(new QPushButton(this)),
-	  ItemsViewButton(new QPushButton(this)),
-	  SearchButton(new QPushButton(this)),
-	  PreviewToggleButton(new QPushButton(this)),
-	  MenuButton(new QPushButton(this)), MainMenu(new QtwmFMMainMenu(this)) {
+	: QWidget(parent), HeaderLayout(new QHBoxLayout(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  SidebarToggleButton(new QPushButton(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  ItemsViewButton(new QPushButton(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  SearchButton(new QPushButton(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  PreviewToggleButton(new QPushButton(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  MenuButton(new QPushButton(this)), // NOLINT(cppcoreguidelines-owning-memory)
+	  MainMenu(new QtwmFMMainMenu(this)) { // NOLINT(cppcoreguidelines-owning-memory)
 
 	const QString ButtonQSS{R"(
 		QPushButton {
